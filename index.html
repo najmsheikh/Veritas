@@ -8,7 +8,7 @@
   <meta name="description" content="Material design inspired learning app.">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-<!--  <link rel="stylesheet" href="styles/main.css">-->
+  <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500">
 
   <script src="//cdn.jsdelivr.net/webcomponentsjs/latest/webcomponents-lite.min.js"></script>
@@ -20,38 +20,17 @@
 <body fullbleed resolved is="auto-binding">
   <firebase-element id="base" location="https://test-environment.firebaseio.com/Subjects" data="{{subjects}}" keys="{{keys}}"></firebase-element>
   <pvc-globals values="{{globals}}"></pvc-globals>
-  <test-app></test-app>
+
+  <app-router>
+    <app-route path="/" import="elements/fc-app/fc-app.html"></app-route>
+    <app-route path="/us-history" import="elements/fc-app1/fc-app1.html"></app-route>
+    <app-route path="/physics" import="elements/fc-app2/fc-app2.html"></app-route>
+    <app-route path="/chemistry" import="elements/fc-app3/fc-app3.html"></app-route>
+  </app-router>
 
 
 
-  <script>
-    addEventListener('template-bound', function(e) {
-      var scope = e.target;
-      var items = [], count=50;
-      for (var i=0; i < count; i++) {
-        items.push(i);
-      }
-
-      scope.items = items;
-
-      scope.selectView = function(e) {
-        var i = e.target.templateInstance.model.item;
-        this.$.pages.selected = i+1;
-      }
-
-      scope.back = function() {
-        this.lastSelected = this.$.pages.selected;
-        console.log(this.lastSelected);
-        this.$.pages.selected = 0;
-      }
-
-      scope.transitionend = function() {
-        if (this.lastSelected) {
-          this.lastSelected = null;
-        }
-      }
-    })
-  </script>
+  <script src="scripts/app.js"></script>
 </body>
 
 </html>
