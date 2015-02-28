@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Veritas</title>
+  <meta name="description" content="Material design inspired learning app.">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+<!--  <link rel="stylesheet" href="styles/main.css">-->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500">
+
+  <script src="//cdn.jsdelivr.net/webcomponentsjs/latest/webcomponents-lite.min.js"></script>
+  <link rel="import" href="imports.html">
+  <link rel="import" href="elements/elements.html">
+
+</head>
+
+<body fullbleed resolved is="auto-binding">
+  <firebase-element id="base" location="https://test-environment.firebaseio.com/Subjects" data="{{subjects}}" keys="{{keys}}"></firebase-element>
+  <pvc-globals values="{{globals}}"></pvc-globals>
+  <test-app></test-app>
+
+
+
+  <script>
+    addEventListener('template-bound', function(e) {
+      var scope = e.target;
+      var items = [], count=50;
+      for (var i=0; i < count; i++) {
+        items.push(i);
+      }
+
+      scope.items = items;
+
+      scope.selectView = function(e) {
+        var i = e.target.templateInstance.model.item;
+        this.$.pages.selected = i+1;
+      }
+
+      scope.back = function() {
+        this.lastSelected = this.$.pages.selected;
+        console.log(this.lastSelected);
+        this.$.pages.selected = 0;
+      }
+
+      scope.transitionend = function() {
+        if (this.lastSelected) {
+          this.lastSelected = null;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

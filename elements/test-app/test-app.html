@@ -1,0 +1,40 @@
+<link rel="import" href="../../imports.html">
+
+<polymer-element name="test-app">
+  <template>
+    <link rel="stylesheet" href="test-app.css">
+    <firebase-element id="base" location="https://test-environment.firebaseio.com/Subjects" data="{{subjects}}" keys="{{keys}}"></firebase-element>
+    <pvc-globals values="{{globals}}"></pvc-globals>
+
+    <template is="auto-binding">
+      <template repeat="{{id in keys}}">
+        <paper-shadow z="1">
+          <div class="ticket">
+            <div layout horizontal center>
+              <div class="urgency_img">
+                <span>{{subjects[id]['name']}}</span>
+              </div>
+              <div class="details" flex>
+                <h3>Room# {{tickets[id]['room']}}</h3>
+                <p>{{tickets[id]['problem']}}</p>
+                <span class="metadata">
+                  by
+                  <core-tooltip>
+                    <div tip>
+                      <div class="round"><img width="20" src="{{tickets[id]['user_metadata']['avatar_url']}}"></div>
+                    </div>
+                    <a href="http://plus.google.com/{{tickets[id]['user_metadata']['html_url']}}">{{tickets[id]['name']}}</a>
+                  </core-tooltip>
+                  &bull;
+                  <time is="time-ago" datetime="{{tickets[id]['timestamp']}}">{{tickets[id]['timestamp']}}</time>
+                </span>
+              </div>
+            </div>
+          </div>
+        </paper-shadow>
+      </template>
+    </template>
+  sdfsd
+  </template>
+  <script src="../../scripts/app.js"></script>
+</polymer-element>
