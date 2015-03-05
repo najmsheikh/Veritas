@@ -18,15 +18,15 @@
 </head>
 
 <body fullbleed resolved is="auto-binding">
-  <firebase-element id="base" location="https://test-environment.firebaseio.com/Subjects" data="{{subjects}}" keys="{{keys}}"></firebase-element>
   <pvc-globals values="{{globals}}"></pvc-globals>
 
   <app-router>
     <app-route path="/" import="elements/fc-app/fc-app.html"></app-route>
-    <app-route path="/us-history" import="elements/fc-app1/fc-app1.html"></app-route>
-    <app-route path="/physics" import="elements/fc-app2/fc-app2.html"></app-route>
-    <app-route path="/chemistry" import="elements/fc-app3/fc-app3.html"></app-route>
+    <app-route path="/us-history" import="elements/fc-app/fc-app.html"></app-route>
+    <app-route path="/physics" import="elements/fc-app/fc-app.html"></app-route>
+    <app-route path="/chemistry" import="elements/fc-app/fc-app.html"></app-route>
   </app-router>
+<!--  <app-scaffold></app-scaffold>-->
 
 
 

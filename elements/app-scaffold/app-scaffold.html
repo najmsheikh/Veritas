@@ -4,6 +4,7 @@
 <polymer-element name="app-scaffold" attributes="selected">
   <template>
     <link rel="stylesheet" href="app-scaffold.css">
+    <pvc-globals values="{{globals}}"></pvc-globals>
 
     <core-toolbar class="medium-tall">
     <div flex>Veritas</div>
@@ -12,13 +13,14 @@
 
     <div class="bottom" horizontal layout>
       <paper-tabs alignBottom noink>
-        <paper-tab active?="{{selected == 'global_history'}}" flex><a href="/#" style="text-decoration: none; color:white">Global History</a></paper-tab>
-        <paper-tab active?="{{selected == 'us_history'}}" flex><a href="/#/us-history" style="text-decoration: none; color:white">US History</a></paper-tab>
-        <paper-tab active?="{{selected == 'physics'}}" flex><a href="/#/physics" style="text-decoration: none; color:white">Physics</a></paper-tab>
-        <paper-tab active?="{{selected == 'chemistry'}}" flex><a href="/#/chemistry" style="text-decoration: none; color:white">Chemistry</a></paper-tab>
+        <paper-tab active?="{{selected == 'global_history'}}" flex><a href="/#" style="text-decoration: none; color:white" on-tap="{{doStuff}}">Global History</a></paper-tab>
+        <paper-tab active?="{{selected == 'us_history'}}" flex><a href="/#/us-history" style="text-decoration: none; color:white" on-tap="{{doStuff1}}">US History</a></paper-tab>
+        <paper-tab active?="{{selected == 'physics'}}" flex><a href="/#/physics" style="text-decoration: none; color:white" on-tap="{{doStuff2}}">Physics</a></paper-tab>
+        <paper-tab active?="{{selected == 'chemistry'}}" flex><a href="/#/chemistry" style="text-decoration: none; color:white" on-tap="{{doStuff3}}">Chemistry</a></paper-tab>
       </paper-tabs>
     </div>
   </core-toolbar>
+
   <content></content>
 
   </template>

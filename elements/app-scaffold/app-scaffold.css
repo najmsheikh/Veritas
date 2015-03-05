@@ -17,6 +17,7 @@ paper-tabs, core-toolbar {
 
 core-toolbar paper-tabs {
   box-shadow: none;
+  height: 100%;
 }
 
 paper-tabs[noink][nobar] paper-tab.core-selected {
@@ -29,11 +30,9 @@ paper-tabs.transparent-teal {
   box-shadow: none;
 }
 
-/*
 paper-tabs.transparent-teal::shadow #selectionBar {
   background-color: #00bcd4;
 }
-*/
 
 paper-tabs.transparent-teal paper-tab::shadow #ink {
   color: #00bcd4;

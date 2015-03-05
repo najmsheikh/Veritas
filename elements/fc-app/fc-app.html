@@ -3,10 +3,11 @@
 <polymer-element name="fc-app">
   <template>
     <link rel="stylesheet" href="fc-app.css">
-    <firebase-element id="base" location="https://test-environment.firebaseio.com/results/global_history" data="{{subjects}}" keys="{{keys}}"></firebase-element>
+
     <pvc-globals values="{{globals}}"></pvc-globals>
 
-    <app-scaffold selected="global_history">
+    <app-scaffold selected="{{globals.subject}}">
+    <firebase-element id="base" location="https://test-environment.firebaseio.com/results/{{globals.subject}}" data="{{subjects}}" keys="{{keys}}"></firebase-element>
       <div>
         <template repeat="{{id in keys}}">
           <paper-shadow id="card">
